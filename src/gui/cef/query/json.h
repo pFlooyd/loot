@@ -283,8 +283,6 @@ nlohmann::json to_json_with_language(const PluginMetadata& metadata,
     { "name", metadata.GetName() },
     { "enabled", metadata.IsEnabled() },
     { "group", metadata.GetGroup() },
-    { "priority", metadata.GetLocalPriority().GetValue() },
-    { "globalPriority", metadata.GetGlobalPriority().GetValue() },
     { "after", metadata.GetLoadAfterFiles() },
     { "req", metadata.GetRequirements() },
     { "inc", metadata.GetIncompatibilities() },
@@ -334,11 +332,6 @@ void from_json(const nlohmann::json& json, PluginMetadata& metadata) {
   // explicitness is ignored when this deserialised data is used.
   metadata.SetGroup(json.value("group", "default"));
 
-  // These two will register all priorities as explicit, but that's OK because
-  // explicitness is ignored where this deserialised data is used.
-  metadata.SetLocalPriority(Priority(json.value("priority", 0)));
-  metadata.SetGlobalPriority(Priority(json.value("global_priority", 0)));
-
   metadata.SetLoadAfterFiles(json.value("after", std::set<File>()));
   metadata.SetRequirements(json.value("req", std::set<File>()));
   metadata.SetIncompatibilities(json.value("inc", std::set<File>()));
@@ -362,8 +355,6 @@ void to_json(nlohmann::json& json, const DerivedPluginMetadata& plugin) {
     { "crc", plugin.crc },
     { "loadOrderIndex", plugin.loadOrderIndex },
     { "group", plugin.group },
-    { "priority", plugin.priority },
-    { "globalPriority", plugin.globalPriority },
     { "messages", plugin.messages },
     { "tags", plugin.tags },
   };
