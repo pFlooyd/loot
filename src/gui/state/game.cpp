@@ -535,6 +535,10 @@ std::set<std::string> Game::GetKnownBashTags() const {
   return gameHandle_->GetDatabase()->GetKnownBashTags();
 }
 
+std::unordered_set<Group> Game::GetGroups() const {
+  return gameHandle_->GetDatabase()->GetGroups();
+}
+
 PluginMetadata Game::GetMasterlistMetadata(const std::string& pluginName,
                                            bool evaluateConditions) const {
   return gameHandle_->GetDatabase()->GetPluginMetadata(

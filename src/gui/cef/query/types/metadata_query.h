@@ -119,6 +119,7 @@ protected:
       { "masterlist", getMasterlistInfo() },
       { "generalMessages", getGeneralMessages() },
       { "bashTags", state_.getCurrentGame().GetKnownBashTags() },
+      { "groups", state_.getCurrentGame().GetGroups() },
       { "plugins", nlohmann::json::array() },
     };
 

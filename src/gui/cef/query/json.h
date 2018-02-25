@@ -228,6 +228,26 @@ void from_json(const nlohmann::json& json, File& file) {
     condition);
 }
 
+void to_json(nlohmann::json& json, const Group& group) {
+  json = {
+    { "name", group.GetName() },
+    { "after", group.GetAfterGroups() },
+  };
+}
+
+void from_json(const nlohmann::json& json, Group& group) {
+  if (json.count("name") == 0) {
+    throw std::runtime_error("Group object has an empty 'name' value");
+  }
+
+  auto condition = json.value("condition", "");
+
+  testConditionSyntax("File", condition);
+
+  group = Group(json.at("name"),
+    json.value("after", std::unordered_set<std::string>()));
+}
+
 void to_json(nlohmann::json& json, const Location& location) {
   json = {
     { "link", location.GetURL() },

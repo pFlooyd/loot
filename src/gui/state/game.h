@@ -89,6 +89,7 @@ public:
 
   void LoadMetadata();
   std::set<std::string> GetKnownBashTags() const;
+  std::unordered_set<Group> GetGroups() const;
   PluginMetadata GetMasterlistMetadata(const std::string& pluginName,
                                        bool evaluateConditions = false) const;
   PluginMetadata GetUserMetadata(const std::string& pluginName,
