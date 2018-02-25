@@ -61,9 +61,9 @@ set (GTEST_INCLUDE_DIRS "${SOURCE_DIR}/googletest/include")
 set (GTEST_LIBRARIES "${BINARY_DIR}/googlemock/gtest/${CMAKE_CFG_INTDIR}/${CMAKE_STATIC_LIBRARY_PREFIX}gtest${CMAKE_STATIC_LIBRARY_SUFFIX}")
 
 if (CMAKE_SYSTEM_NAME MATCHES "Windows")
-    set(LOOT_API_URL "https://bintray.com/wrinklyninja/loot/download_file?file_path=loot_api-0.12.4-10-ge1d82d0_group-metadata-win32.7z")
+    set(LOOT_API_URL "https://bintray.com/wrinklyninja/loot/download_file?file_path=loot_api-0.12.4-11-g55f803a_remove-priorities-win32.7z")
 else()
-    set(LOOT_API_URL "https://bintray.com/wrinklyninja/loot/download_file?file_path=loot_api-0.12.4-10-ge1d82d0_group-metadata-Linux.tar.xz")
+    set(LOOT_API_URL "https://bintray.com/wrinklyninja/loot/download_file?file_path=loot_api-0.12.4-11-g55f803a_remove-priorities-Linux.tar.xz")
 endif()
 
 ExternalProject_Add(json
