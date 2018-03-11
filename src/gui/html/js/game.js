@@ -14,6 +14,7 @@ export default class Game {
     this.masterlist = obj.masterlist || {};
     this.plugins = obj.plugins || [];
     this.bashTags = obj.bashTags || [];
+    this.groups = obj.groups || [];
 
     this.oldLoadOrder = undefined;
 
@@ -200,6 +201,7 @@ export default class Game {
         isEmpty: plugin.isEmpty,
         loadsArchive: plugin.loadsArchive,
 
+        group: plugin.group,
         priority: plugin.priority,
         globalPriority: plugin.globalPriority,
         messages: plugin.messages,

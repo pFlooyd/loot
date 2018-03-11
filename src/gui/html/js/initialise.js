@@ -58,6 +58,7 @@ import {
   onFocusSearch,
   onSearchChangeSelection,
   onSidebarClick,
+  fillGroupsList,
   fillLanguagesList,
   listInitErrors,
   enableGameOperations,
@@ -315,6 +316,8 @@ function setGameData(appData) {
 
     appData.game.initialiseUI();
     appData.filters.load(appData.settings.filters);
+
+    fillGroupsList(appData.game.groups);
 
     /* Initialise the lists before checking if any filters need to be applied.
       This causes the UI to be initialised faster thanks to scheduling
